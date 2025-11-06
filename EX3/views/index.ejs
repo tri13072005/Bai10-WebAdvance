@@ -1,0 +1,58 @@
+<!DOCTYPE html>  												
+<html lang="en">  												
+<head>  												
+    <meta charset="UTF-8">  												
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  												
+    <title>Calculate Square Properties</title>  												
+    <link rel="stylesheet" href="/styles.css"> <!-- thêm stylesheet -->
+</head>  												
+<body>  												
+    <div class="container">  												
+        <header>  												
+            <h1>Square Calculator</h1>  												
+            <p class="subtitle">Tính chu vi và diện tích, lưu lại lịch sử</p>  												
+        </header>  												
+        <main>  												
+            <section class="card form-card">  												
+                <form action="/calculate" method="POST" class="calc-form">  												
+                    <label for="sideLength">Side Length</label>  												
+                    <input id="sideLength" type="number" name="sideLength" min="0" step="0.01" required>  												
+                    <button type="submit" class="btn">Calculate</button>  												
+                </form>  												
+            </section>  												
+            <% if (perimeter !== null && area !== null) { %>  												
+                <section class="card result-card">  												
+                    <h2>Results</h2>  												
+                    <p>Perimeter: <strong><%= perimeter %></strong></p>  												
+                    <p>Area: <strong><%= area %></strong></p>  												
+                </section>  												
+            <% } %>  												
+            <section class="card history-card">  												
+                <h3>Recent Calculations</h3>  												
+                <% if (squares && squares.length) { %>  												
+                    <table class="history-table">  												
+                        <thead>  												
+                            <tr><th>#</th><th>Side</th><th>Perimeter</th><th>Area</th></tr>  												
+                        </thead>  												
+                        <tbody>  												
+                            <% squares.forEach((s, i) => { %>
+                                <tr>
+                                    <td><%= i+1 %></td>
+                                    <td><%= s.sideLength %></td>
+                                    <td><%= s.perimeter %></td>
+                                    <td><%= s.area %></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                <% } else { %>
+                    <p class="muted">No recent calculations yet.</p>
+                <% } %>
+            </section>  												
+        </main>  												
+        <footer>  												
+            <p class="muted">© Square App</p>  												
+        </footer>
+    </div>  												
+</body>  												
+</html>
