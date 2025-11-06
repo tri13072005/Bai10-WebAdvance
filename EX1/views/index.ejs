@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính chu vi hình chữ nhật</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+    }
+    input {
+      width: 80%;
+      padding: 8px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .result {
+      margin-top: 15px;
+      font-size: 1.1em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Tính chu vi hình chữ nhật</h2>
+    <form action="/calculate" method="post">
+      <input type="number" name="width" placeholder="Chiều rộng" required><br>
+      <input type="number" name="height" placeholder="Chiều cao" required><br>
+      <button type="submit">Tính</button>
+    </form>
+
+    <% if (perimeter !== null) { %>
+      <div class="result">
+        <p><strong>Kết quả:</strong> <%= perimeter %></p>
+      </div>
+    <% } %>
+  </div>
+</body>
+</html>
